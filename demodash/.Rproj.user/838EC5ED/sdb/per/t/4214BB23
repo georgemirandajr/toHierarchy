@@ -1,0 +1,16 @@
+{
+    "contents" : "---\ntitle: \"Uses of R at RR/CC\"\nauthor: \"George Miranda\"\ndate: \"Wednesday, July 09, 2014\"\noutput: ioslides_presentation\n---\n\n## What is R?\n\nR is open source statistical programming software. It can be used to extract, clean, and display data using it's programming language. Although there is a _base_ functionality of R, there is a repository of additional _packages_ contributed by users. These packages allow people to display beautiful graphics, perform complicated statistical analyses, implement interactive visualizations, and many other things as well.  \n\n## Who uses R?\nR is used by used by academics and industry folks alike. People use R because it's __free__ and __powerful__.  Here's a brief list of places that use R:  \n\n* Google\n* Zillow\n* UCLA\n* UC Berkeley\n* Bank of America\n* Twitter\n* Facebook\n* Food and Drug Administration\n* National Institute of Standards and Technology\n\nYou can find more details on [wikipedia](<http://en.wikipedia.org/wiki/R_%28programming_language%29>).\n\n## R at the rR/CC\n\n- Inspector Survey\n- LSS\n- PACE\n\n## Inspector Survey\nA word analysis was performed of the comments made by Inspectors in the November 2013 election. Some comments were collected online, while some were transcribed into Excel from hard copy surveys. The data required clean up and removal of white spaces and words such as \"the\" or \"it\", etc.  \n\nBelow is the code used to clean the data.\n\n```{r}\nsummary(cars) ## insert code to create the word cloud of inspector comments\n```\n\n## Word Cloud of Inspector Comments\n\n```{r, echo=FALSE}\nplot(cars) ## insert image of word cloud\n```\n\n",
+    "created" : 1404400170215.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3957402886",
+    "id" : "4214BB23",
+    "lastKnownWriteTime" : 1404408769,
+    "path" : "~/demodash/Rpresentation.Rmd",
+    "project_path" : "Rpresentation.Rmd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}

@@ -1,0 +1,47 @@
+---
+title: "Uses of R at RR/CC"
+author: "George Miranda"
+date: "Wednesday, July 09, 2014"
+output: ioslides_presentation
+---
+
+## What is R?
+
+R is open source statistical programming software. It can be used to extract, clean, and display data using it's programming language. Although there is a _base_ functionality of R, there is a repository of additional _packages_ contributed by users. These packages allow people to display beautiful graphics, perform complicated statistical analyses, implement interactive visualizations, and many other things as well.  
+
+## Who uses R?
+R is used by used by academics and industry folks alike. People use R because it's __free__ and __powerful__.  Here's a brief list of places that use R:  
+
+* Google
+* Zillow
+* UCLA
+* UC Berkeley
+* Bank of America
+* Twitter
+* Facebook
+* Food and Drug Administration
+* National Institute of Standards and Technology
+
+You can find more details on [wikipedia](<http://en.wikipedia.org/wiki/R_%28programming_language%29>).
+
+## R at the rR/CC
+
+- Inspector Survey
+- LSS
+- PACE
+
+## Inspector Survey
+A word analysis was performed of the comments made by Inspectors in the November 2013 election. Some comments were collected online, while some were transcribed into Excel from hard copy surveys. The data required clean up and removal of white spaces and words such as "the" or "it", etc.  
+
+Below is the code used to clean the data.
+
+```{r}
+summary(cars) ## insert code to create the word cloud of inspector comments
+```
+
+## Word Cloud of Inspector Comments
+
+```{r, echo=FALSE}
+plot(cars) ## insert image of word cloud
+```
+

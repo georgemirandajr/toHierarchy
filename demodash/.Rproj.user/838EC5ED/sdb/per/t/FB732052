@@ -1,0 +1,16 @@
+{
+    "contents" : "library(data.table)\nlibrary(ggplot2)\nlibrary(knitr)\nindexing <- fread(\"./data/indexing.csv\", sep = \"auto\", header = \"auto\", stringsAsFactors = TRUE)\nindexing$date <- as.Date(indexing$date, format = \"%m/%d/%Y\")\nindexing$mo <- strftime(indexing$date, \"%m\")\nindexing$yr <- strftime(indexing$date, \"%Y\")\nmonthlyavg <- aggregate(cbind(ratePH, namesPD, docs, minutes) ~ mo + yr + emp, data = indexing, FUN = mean)\nmonthlyavg$date <- as.POSIXct(paste(monthlyavg$yr, monthlyavg$mo, \"01\", sep = \"-\"))\n\nshinyServer(function(input, output) {\n    \n    names <- reactive(subset(indexing, emp == input$emp))\n    \n    empavg <- reactive(subset(monthlyavg, emp == input$emp))\n    \n    output$trendtable <- renderTable({ \n                            names()})\n    \n    output$emp <- renderText(input$emp)\n    \n    output$trend <- renderPlot({\n        \n        validate(\n            need(length(names()$emp) > 3, \"Enter an employee number using this format: 'E01'\"\n            )\n        )\n        \n        g <- ggplot(empavg(), aes(x = date, y = ratePH))\n        \n        g + geom_point(aes(color = namesPD, size = docs)) + \n            \n            scale_color_gradient(low = \"blue\", high = \"red\") +\n            \n            labs(title = \"Monthly Average Rate Per Hour\", x = \"\", y = \"\", color = \"Names Per Doc\",\n                 size = \"Docs\") + theme_bw()\n\n    })\n    \n    output$total <- renderText({\n        sum(names()$docs)\n        \n    })\n    \n    output$peak <- renderText({\n        names()$docs[which.max(names()$docs)]\n    })\n    \n    output$avg <- renderText({\n        \n        if (length(names()$emp) < 3) {\n            \n            NULL\n            \n        } else {\n            \n            round(mean(names()$ratePH), digits = 2)\n                \n    }\n    \n    })\n\n    output$downloadCSV <-\n        downloadHandler(filename = \"report.csv\",\n                        content = function(con) {\n                            assign(input$emp, empavg())\n                            save(list = input$emp, file = con)\n                            },\n                        \n        )\n\n})",
+    "created" : 1404275428269.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "711292182",
+    "id" : "FB732052",
+    "lastKnownWriteTime" : 1404442520,
+    "path" : "~/demodash/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

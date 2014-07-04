@@ -1,0 +1,9 @@
+{
+    "path" : "~/demodash",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

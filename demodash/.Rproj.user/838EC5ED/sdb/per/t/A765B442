@@ -1,0 +1,16 @@
+{
+    "contents" : "shinyUI(navbarPage(\"PACE App\",\n    navbarMenu(\"Recorder\",\n        tabPanel(\"Indexing\"),\n    \n    fluidPage(\n    \n    sidebarLayout(\n        \n        sidebarPanel(\n            \n            textInput(\"emp\", \"Employee Number:\",\n                      value = \"E01\"),\n            \n            h1(textOutput(\"total\")),\n            \"indexed this many documents in a year\",\n            h1(textOutput(\"peak\")),\n            \"peak documents in a day\",\n            h1(textOutput(\"avg\")),\n            \"total average documents per hour\"\n            \n        ),\n        \n        mainPanel(\n            \n            tabsetPanel(\n                tabPanel(\"Plot\", plotOutput(\"trend\")),\n                tabPanel(\"Table\", tableOutput(\"trendtable\")),\n            \n            downloadButton(\"downloadCSV\", \"Download CSV\")\n            )\n        )\n    )\n)\n),\ntabPanel(\"Elections\")\n)\n)",
+    "created" : 1404275432506.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "121485747",
+    "id" : "A765B442",
+    "lastKnownWriteTime" : 1404442553,
+    "path" : "~/demodash/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

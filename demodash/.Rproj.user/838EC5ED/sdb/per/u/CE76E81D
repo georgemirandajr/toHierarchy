@@ -1,0 +1,17 @@
+{
+    "contents" : "library(data.table)\nlibrary(ggplot2)\nlibrary(lubridate)\nlibrary(zoo)\nindexing <- fread(\"./data/indexing.csv\", sep = \"auto\", header = \"auto\", stringsAsFactors = TRUE)\nindexing$date <- as.Date(indexing$date, format = \"%m/%d/%Y\")\nindexing$mo <- strftime(indexing$date, \"%m\")\nindexing$yr <- strftime(indexing$date, \"%Y\")\n\nE01 <- subset(indexing, emp == \"E01\")\na <- aggregate(cbind(ratePH, namesPD) ~ mo + yr, data = E01, FUN = mean)\na$date <- as.POSIXct(paste(a$yr, a$mo, \"01\", sep = \"-\"))\n\n***\n\na <- aggregate(ratePH ~ mo + yr, data = E01, FUN = mean)\na$date <- as.POSIXct(paste(a$yr, a$mo, \"01\", sep = \"-\"))\n\nif (length(names()$emp) < 3) { \n    \n    NULL\n    \n} else {\n    \n\n    monthlyavg %>%\n        \n        ggvis(x = ~date, y = ~ratePH) %>%\n        \n        layer_points()\n    ",
+    "created" : 1404322223022.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "2847586480",
+    "id" : "CE76E81D",
+    "lastKnownWriteTime" : 28147699542065268,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
